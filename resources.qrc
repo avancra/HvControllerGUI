@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+    <qresource>
+        <file>icons/green-led-on.png</file>
+        <file>icons/led-red-on.png</file>
+        <file>icons/blue-led-on.png</file>
+    </qresource>
+</RCC>

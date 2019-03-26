@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>465</width>
+    <height>649</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>HV controller - Glassman FJ 40 kV 3 mA</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="prtNameLabel">
+              <property name="text">
+               <string>Port name</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="prtList"/>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="prtOpenBtn">
+              <property name="text">
+               <string>Open port</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="prtCloseBtn">
+              <property name="text">
+               <string>Close port</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QFormLayout" name="formLayout_2">
+            <property name="fieldGrowthPolicy">
+             <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+            </property>
+            <item row="0" column="0">
+             <widget class="QLabel" name="voltLabel">
+              <property name="text">
+               <string>Voltage (kV)</string>
+              </property>
+              <property name="scaledContents">
+               <bool>false</bool>
+              </property>
+              <property name="buddy">
+               <cstring>voltValueToSet</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QDoubleSpinBox" name="voltValueToSet">
+              <property name="accelerated">
+               <bool>true</bool>
+              </property>
+              <property name="keyboardTracking">
+               <bool>false</bool>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="curLabel">
+              <property name="text">
+               <string>Current (mA)</string>
+              </property>
+              <property name="buddy">
+               <cstring>curValueToSet</cstring>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QDoubleSpinBox" name="curValueToSet">
+              <property name="accelerated">
+               <bool>true</bool>
+              </property>
+              <property name="keyboardTracking">
+               <bool>false</bool>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QPushButton" name="setBtn">
+              <property name="text">
+               <string>Set values</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QPushButton" name="resetBtn">
+              <property name="text">
+               <string>Reset</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <widget class="QPushButton" name="queryBtn">
+              <property name="text">
+               <string>Query HV status</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <layout class="QFormLayout" name="formLayout_3">
+              <item row="0" column="0">
+               <widget class="QLabel" name="voltValuelabel">
+                <property name="text">
+                 <string>V (kV)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLCDNumber" name="voltValueRead">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Box</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="smallDecimalPoint">
+                 <bool>true</bool>
+                </property>
+                <property name="digitCount">
+                 <number>5</number>
+                </property>
+                <property name="mode">
+                 <enum>QLCDNumber::Dec</enum>
+                </property>
+                <property name="segmentStyle">
+                 <enum>QLCDNumber::Flat</enum>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="curValuelabel">
+                <property name="text">
+                 <string>I (mA)</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLCDNumber" name="curValueRead">
+                <property name="enabled">
+                 <bool>false</bool>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Box</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Plain</enum>
+                </property>
+                <property name="smallDecimalPoint">
+                 <bool>true</bool>
+                </property>
+                <property name="digitCount">
+                 <number>5</number>
+                </property>
+                <property name="mode">
+                 <enum>QLCDNumber::Dec</enum>
+                </property>
+                <property name="segmentStyle">
+                 <enum>QLCDNumber::Flat</enum>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QFormLayout" name="formLayout_4">
+            <item row="0" column="0">
+             <widget class="QLabel" name="hvOnLabel">
+              <property name="text">
+               <string>HV on</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="faultLabel">
+              <property name="text">
+               <string>Fault</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="ctrlModeLabel">
+              <property name="text">
+               <string>Ctrl mode</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QRadioButton" name="ctrlModeVoltBtn">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="palette">
+               <palette>
+                <active>
+                 <colorrole role="WindowText">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </active>
+                <inactive>
+                 <colorrole role="WindowText">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </inactive>
+                <disabled>
+                 <colorrole role="WindowText">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </disabled>
+               </palette>
+              </property>
+              <property name="text">
+               <string>Voltage</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QRadioButton" name="ctrlModeCurBtn">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="palette">
+               <palette>
+                <active>
+                 <colorrole role="WindowText">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </active>
+                <inactive>
+                 <colorrole role="WindowText">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </inactive>
+                <disabled>
+                 <colorrole role="WindowText">
+                  <brush brushstyle="SolidPattern">
+                   <color alpha="255">
+                    <red>0</red>
+                    <green>0</green>
+                    <blue>0</blue>
+                   </color>
+                  </brush>
+                 </colorrole>
+                </disabled>
+               </palette>
+              </property>
+              <property name="text">
+               <string>Current</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLabel" name="hvOnLed">
+              <property name="maximumSize">
+               <size>
+                <width>21</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="resources.qrc">:/icons/green-led-on.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLabel" name="faultLed">
+              <property name="maximumSize">
+               <size>
+                <width>21</width>
+                <height>21</height>
+               </size>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+              <property name="pixmap">
+               <pixmap resource="resources.qrc">:/icons/led-red-on.png</pixmap>
+              </property>
+              <property name="scaledContents">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="Line" name="line_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Set a program</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QFormLayout" name="formLayout_5">
+            <item row="0" column="0">
+             <widget class="QPushButton" name="prgSelectBtn">
+              <property name="text">
+               <string>Select file :</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QPushButton" name="prgStartBtn">
+              <property name="text">
+               <string>Start</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QPushButton" name="prgStopBtn">
+              <property name="text">
+               <string>Stop</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="prgFilenameLineEdit"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="prgPlotVoltBtn">
+            <property name="text">
+             <string>Plot current HV program</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGraphicsView" name="prgVoltGraph"/>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QLabel" name="cmdOutLabel">
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Command output</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTextEdit" name="cmdOutText">
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>465</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuExit">
+    <property name="title">
+     <string>&amp;Menu</string>
+    </property>
+    <addaction name="actionSettings"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionHV_firmware_version"/>
+    <addaction name="actionOnline_documentation"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuExit"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="statusTip">
+    <string>'Exit application'</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+  </action>
+  <action name="actionHV_firmware_version">
+   <property name="text">
+    <string>HV firmware version</string>
+   </property>
+  </action>
+  <action name="actionOnline_documentation">
+   <property name="text">
+    <string>Online documentation</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
