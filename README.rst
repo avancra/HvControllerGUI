@@ -1,6 +1,12 @@
 ===============================================
 HvControllerGUI
 ===============================================
+|zenodo-doi| 
+
+.. |zenodo-doi| image::  https://zenodo.org/badge/DOI/10.5281/zenodo.2613605.svg
+    :target: https://doi.org/10.5281/zenodo.2613605
+    :alt: DOI
+
 
 HvControllerGUI is a graphical application to control a Glassman HV power supply. It has been developed for a FJ series model, delivering positive high voltage up to 40 kV  and 3 mA (model FJ40P03).
 
@@ -18,6 +24,17 @@ License
 =======
 
 HvControllerGUI is licensed under the Apache License, Version 2.0 (see LICENSE for full version of the license)
+
+Citation
+========
+
+If you used this software please acknowledge its author(s):
+
+Default citation format:
+
+*Aurélie Vancraeyenest. (2019, March 28). HvControllerGUI - Instrument control software for High Voltage power supply (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.2613605*
+
+For citation format, you can either use the one below, or go to `the project publication page <https://doi.org/10.5281/zenodo.2613605>`_ to get other citation export options.
 
 Features
 ========
@@ -54,7 +71,7 @@ Components
 
 In the **HvController** class are defined all the methods for communication with the hardware. Some hardware characteristics are defined as class variables and can be adapted for other hardware(MAX_VOLTAGE, MAX_CURENT, MAX_HEX_VAL_RECEIVE, MAX_HEX_VAL_SENT).
 
-The thread workers are defined in the **workers.py** file and the **checksum module** import some functionalities to deal with checksum calculation and checking. The thread worker is designed to be very generic. It takes a function name as argument and its arguments as keyword arguments. This allow to be able to launch all the small function through the same worker.
+The thread workers are defined in the **workers.py** file and the **checksum module** import some functionalities to deal with checksum calculation and checking. The thread worker is designed to be very generic. It takes a function name as argument and its arguments as keyword arguments. This allow to launch all the small functions through the same worker.
 
 
 
